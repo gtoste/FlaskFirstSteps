@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block head %}
+    {{super()}}
+{% endblock %}
+{% block body %}
+    {% if name %}
+        <h2>Witaj {{name}}</h2>
+    {% else %}
+        <h2>Witaj nieznajomy</h2>
+    {% endif %}
+{% endblock %}
