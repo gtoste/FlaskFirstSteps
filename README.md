@@ -1,3 +1,3 @@
-# 4p1Flask
+# Flask First Steps
 
 School project. Learning flask + bootstrap.
