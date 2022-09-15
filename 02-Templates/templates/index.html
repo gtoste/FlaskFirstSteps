@@ -5,7 +5,10 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <h2>Witaj Flask!!!</h2>
-    {{name}}
+    {% if name %}
+        <h2>Witaj {{name}}</h2>
+    {% else %}
+        <h2>Witaj nieznajomy</h2>
+    {% endif %}
 </body>
 </html>
