@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('pl') }}
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+{% block navbar %}
+    {% include "includes/navbar.html" %}
+{% endblock %}
+{% block content %}
+    <div class="container mt-2">
+      <h2>Witaj, {{ userName }}</h2>
+    </div>
+{% endblock %}
