@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('pl') }}
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+{% block navbar %}
+    {% include "includes/navbar.html" %}
+{% endblock %}
+{% block content %}
+    <div class="container mt-2">
+        {% if result %}
+            <div class="alert alert-warning alert-dismissible fade show"  role="alert">
+                {{result}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        <form method="post" action ="/function">
+            <div class="mb-3 mt-3">
+                {{ functionForm.hidden_tag() }}
+                {{ functionForm.inputA.label(class_='form-label') }}
+                {{ functionForm.inputA(class_='form-control mb-3') }}
+
+                {{ functionForm.hidden_tag() }}
+                {{ functionForm.inputB.label(class_='form-label') }}
+                {{ functionForm.inputB(class_='form-control mb-3') }}
+
+                {{ functionForm.hidden_tag() }}
+                {{ functionForm.inputC.label(class_='form-label') }}
+                {{ functionForm.inputC(class_='form-control mb-3') }}
+
+                {{ functionForm.submit(class_='btn btn-success')}}
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
