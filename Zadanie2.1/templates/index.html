@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+    <div class="container mt-2">
+        <form method="post" action ="/">
+            <div class="mb-3 mt-3">
+                {{ form.hidden_tag() }}
+                {{ form.list.label(class_='form-label') }}
+                {{ form.list(class_='form-control mb-3') }}
+                {{ form.submit(class_='btn btn-success')}}
+            </div>
+        </form>
+
+        {% if list_sorted %}
+        <ul>
+            <li>lista: {{list_sorted}}</li>
+            <li>min: {{min}}</li>
+            <li>max: {{max}}</li>
+            <li>avg: {{avg}}</li>
+        </ul>
+        {% endif %}
+    </div>
+{% endblock %}
