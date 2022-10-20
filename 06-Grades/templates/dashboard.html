@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} {{title}} {% endblock %}
+{% block navbar %}
+    {% if userLogin %}
+        {% include "includes/navbarlogin.html" %}
+    {% else %}
+        {% include "includes/navbar.html" %}
+    {%  endif %}
+{% endblock %}
+{% block content %}
+   <div class="container">
+ {% if userLogin %}
+    <h1>Jesteś zalogowany jako {{ userLogin }}</h1>
+   {% else %}
+       <div class="alert alert-warning">
+       Nie jesteś zalogowany
+       <a href="/logIn" class="alert-link">
+           Przejdz do strony logowania
+       </a>
+       </div>
+   {% endif %}
+   </div>
+{% endblock %}

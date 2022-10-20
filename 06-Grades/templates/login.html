@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} {{title}} {% endblock %}
+{% block navbar %}
+    {% include "includes/navbar.html" %}
+{% endblock %}
+{% block content %}
+    <div class="container mt-2">
+
+    {% if userLogin %}
+        <div class="alert alert-warning">
+       Jesteś już zalogowany
+       <a href="/dashboard" class="alert-link">
+           Przejdz do strony głównej
+       </a>
+       </div>
+    {% else %}
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <form action="/logIn" method="post">
+                    {{ login.hidden_tag() }}
+                    {{ login.userLogin.label(class_="form-label") }}
+                    {{ login.userLogin(class_="form-control") }}
+                    {{ login.userPass.label(class_="form-label") }}
+                    {{ login.userPass(class_="form-control") }}
+                    {{ login.submit(class_="btn btn-dark mt-3 float-end") }}
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}
