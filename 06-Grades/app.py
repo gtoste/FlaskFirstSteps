@@ -1,7 +1,9 @@
+import json
 
 from flask import Flask, render_template, session, redirect
 from flask_bs4 import Bootstrap
 from flask_moment import Moment
+from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
@@ -11,6 +13,7 @@ from wtforms.validators import DataRequired
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+date = datetime.now()
 app.config['SECRET_KEY'] = '09i8y7bjhnkmlo;p[o09i08u'
 
 
@@ -46,7 +49,9 @@ def logIn():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html', title='Dashboard', userLogin=session.get('userLogin'))
+    with open('data/grades.json','r') as f:
+        grades = json.load(f)
+    return render_template('dashboard.html', title='Dashboard', userLogin=session.get('userLogin'), date = date, grades = grades)
 
 @app.route('/logOut')
 def logOut():

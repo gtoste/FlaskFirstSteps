@@ -1,0 +1,57 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nazwa przedmiotu</th>
+            <th>Oceny - pierwszy semestr</th>
+            <th>Średnia</th>
+            <th>Ocena sródroczna</th>
+            <th>Oceny - drugi semestr</th>
+            <th>Średnia</th>
+            <th>Ocena śródroczna</th>
+            <th>Ocena roczna</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subject, terms in grades.items() %}
+            <tr>
+                <td>{{subject | title}}</td>
+                {%  for term, categories in terms.items() %}
+                    {% if term == 'term1' %}
+                        <td>
+                            {% for category, grades in categories.items() %}
+                                {% if category == 'answer' %}
+                                    {% for grade in grades %}
+                                        <span class="badge bg-warning">{{ grade }}</span>
+                                    {% endfor %}
+                                    {% elif category == 'quiz' %}
+                                        {% for grade in grades %}
+                                            <span class="badge bg-success">{{ grade }}</span>
+                                        {% endfor %}
+                                    {% elif category == 'test' %}
+                                        {% for grade in grades %}
+                                            <span class="badge bg-primary">{{ grade }}</span>
+                                        {% endfor %}
+                            {% endfor %}
+                        </td>
+                        {% if term == 'interim' %}
+                        <td>
+                            <span class="badge bg-primary">{{ term }}</span>
+                        </td>
+                            {% endif %}
+                    {% elif term == 'term2' %}
+                        <td>
+                            {% for category, grades in categories.items() %}
+                                {% if category == 'answer' %}
+                                    {% for grade in grades %}
+                                        <span class="badge bg-success">{{ grade }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+
+        {% endfor %}
+    </tbody>
+</table>

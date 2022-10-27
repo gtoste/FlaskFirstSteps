@@ -1,0 +1,62 @@
+{
+  "informatyka": {
+    "term1": {
+      "answer": [4,5,5,6],
+      "quiz": [4,4,5],
+      "test": [5,5,6],
+      "interim": 5
+    },
+    "term2": {
+      "answer": [4,5,5,6],
+      "quiz": [4,4,5],
+      "test": [5,5,6],
+      "interim": 5,
+      "yearly": 5
+    }
+  },
+  "matematyka": {
+    "term1": {
+      "answer": [1,2,3,4,4,4,6],
+      "quiz": [4,4,5,3,3],
+      "test": [5,5,6,3],
+      "interim": 4
+    },
+    "term2": {
+      "answer": [4,3,2,6],
+      "quiz": [4,4,1],
+      "test": [5,5,6],
+      "interim": 4,
+      "yearly": 4
+    }
+  },
+  "chemia": {
+    "term1": {
+      "answer": [4,2,4],
+      "quiz": [4,4],
+      "test": [5,5,5],
+      "interim": 4
+    },
+    "term2": {
+      "answer": [4,2,6],
+      "quiz": [4,4,1,4],
+      "test": [5,5,6,4],
+      "interim": 4,
+      "yearly": 4
+    }
+  },
+  "fizyka": {
+    "term1": {
+      "answer": [4,2,4,3,3,3,3,3],
+      "quiz": [4,4],
+      "test": [5,5,5],
+      "interim": 4
+    },
+    "term2": {
+      "answer": [4,2,6,2,2,2,2],
+      "quiz": [4,4,1,4],
+      "test": [5,5,6,4],
+      "interim": 4,
+      "yearly": 4
+    }
+  }
+}
